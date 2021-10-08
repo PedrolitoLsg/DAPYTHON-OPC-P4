@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: .\view.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="view.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               .\view.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E902">
+               <span class="count sev-1">
+                  1
+               </span>
+               <strong>E902:</strong> TokenError: EOF in multi-line statement
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="view.source.html#l1">
+                  <tt><i>1</i> <span class="k">class</span> <span class="nc">View</span><span class="p">:</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  36
+               </span>
+               <strong>E501:</strong> line too long (119 > 79 characters)
+               
+                  (and 25 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (119 > 79 characters):</p>
+               
+               <a href="view.source.html#l8">
+                  <tt><i>8</i>         <span class="n">instructions</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;Before adding any player to a tournament you should enter its information in the database&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (86 > 79 characters):</p>
+               
+               <a href="view.source.html#l11">
+                  <tt><i>11</i>         <span class="n">add_players_to_a_tournament</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="s2">&quot;To add players to a tournament press 3.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (147 > 79 characters):</p>
+               
+               <a href="view.source.html#l17">
+                  <tt><i>17</i>         <span class="n">choice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="n">intro</span> <span class="o">+</span> <span class="n">add_player</span> <span class="o">+</span> <span class="n">create_tournament</span> <span class="o">+</span> <span class="n">add_players_to_a_tournament</span> <span class="o">+</span> <span class="n">get_pairs</span> <span class="o">+</span> <span class="n">enter_results</span> <span class="o">+</span> <span class="n">reports</span> <span class="o">+</span> <span class="n">modif_elo</span><span class="p">))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (92 > 79 characters):</p>
+               
+               <a href="view.source.html#l28">
+                  <tt><i>28</i>                 <span class="n">valuename</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter your first name without numeric symbols:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (105 > 79 characters):</p>
+               
+               <a href="view.source.html#l103">
+                  <tt><i>103</i>             <span class="n">tdate</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter the date of the tournament following the DDMMYYYY structure: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="view.source.html#l107">
+                  <tt><i>107</i>             <span class="n">tlocation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Please enter the city of location of the tournament :</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (109 > 79 characters):</p>
+               
+               <a href="view.source.html#l117">
+                  <tt><i>117</i>                 <span class="n">ttimecontrol</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the tournament time-control : Blitz or Bullet or Coup Rapide </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (136 > 79 characters):</p>
+               
+               <a href="view.source.html#l124">
+                  <tt><i>124</i>         <span class="n">tinfo</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">get_tname</span><span class="p">(),</span> <span class="s1">&#39;date&#39;</span><span class="p">:</span> <span class="n">get_tdate</span><span class="p">(),</span> <span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="n">get_tlocation</span><span class="p">(),</span> <span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="n">get_tdescription</span><span class="p">(),</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (92 > 79 characters):</p>
+               
+               <a href="view.source.html#l132">
+                  <tt><i>132</i>         <span class="n">tournament</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament you want to add players to:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (101 > 79 characters):</p>
+               
+               <a href="view.source.html#l133">
+                  <tt><i>133</i>         <span class="n">first_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the first name of the player you want to add to the tournament:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (99 > 79 characters):</p>
+               
+               <a href="view.source.html#l134">
+                  <tt><i>134</i>         <span class="n">last_name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the last name of the player you want to add to the tournament:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="view.source.html#l139">
+                  <tt><i>139</i>         <span class="n">info</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament you wish to get pairings for:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (111 > 79 characters):</p>
+               
+               <a href="view.source.html#l168">
+                  <tt><i>168</i>             <span class="n">result_p1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the result of the 1st player of the n°&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; match:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (86 > 79 characters):</p>
+               
+               <a href="view.source.html#l193">
+                  <tt><i>193</i>             <span class="n">second</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament you are looking for: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (112 > 79 characters):</p>
+               
+               <a href="view.source.html#l196">
+                  <tt><i>196</i>             <span class="n">second</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament where you are looking to get the matches list: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (123 > 79 characters):</p>
+               
+               <a href="view.source.html#l199">
+                  <tt><i>199</i>             <span class="n">second</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament you are looking to get all players by alphabetical order: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (110 > 79 characters):</p>
+               
+               <a href="view.source.html#l202">
+                  <tt><i>202</i>             <span class="n">second</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter the name of the tournament you are looking to get all players by score: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (100 > 79 characters):</p>
+               
+               <a href="view.source.html#l205">
+                  <tt><i>205</i>             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There must be a typo in the view.py in the function def get_input_reports(self)&quot;</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (81 > 79 characters):</p>
+               
+               <a href="view.source.html#l208">
+                  <tt><i>208</i>     <span class="k">def</span> <span class="nf">input_elo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># permet de mettre à jour les elo suite à un tournament</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (85 > 79 characters):</p>
+               
+               <a href="view.source.html#l254">
+                  <tt><i>254</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39; The player list for the tournament in question is already full&#39;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (93 > 79 characters):</p>
+               
+               <a href="view.source.html#l257">
+                  <tt><i>257</i>     <span class="k">def</span> <span class="nf">print_player_added_to_the_player_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">spot</span><span class="p">,</span> <span class="n">tournament</span><span class="p">):</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (133 > 79 characters):</p>
+               
+               <a href="view.source.html#l258">
+                  <tt><i>258</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39;Player: &#39;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="s2">&quot; was added with nb : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">spot</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; in tournament: &quot;</span> <span class="o">+</span> <span class="n">tournament</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (82 > 79 characters):</p>
+               
+               <a href="view.source.html#l266">
+                  <tt><i>266</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;It seems like the player you entered doesn&#39;t exist in the db&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (109 > 79 characters):</p>
+               
+               <a href="view.source.html#l270">
+                  <tt><i>270</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The player: &quot;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="s2">&quot; was successfully added to the database&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (100 > 79 characters):</p>
+               
+               <a href="view.source.html#l274">
+                  <tt><i>274</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The player &quot;</span> <span class="o">+</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span> <span class="o">+</span> <span class="s2">&quot; already exists in the database&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="view.source.html#l278">
+                  <tt><i>278</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The tournament : &quot;</span> <span class="o">+</span> <span class="n">tournament</span> <span class="o">+</span> <span class="s2">&quot; already exists in the database&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="view.source.html#l282">
+                  <tt><i>282</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot; The tournament: &quot;</span> <span class="o">+</span> <span class="n">tournament</span> <span class="o">+</span> <span class="s2">&quot; has been successfully created.&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (114 > 79 characters):</p>
+               
+               <a href="view.source.html#l286">
+                  <tt><i>286</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;Update of the elo score for player : &quot;</span> <span class="o">+</span> <span class="n">player_first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">player_last_name</span> <span class="o">+</span> <span class="s2">&quot; done&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (102 > 79 characters):</p>
+               
+               <a href="view.source.html#l290">
+                  <tt><i>290</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The player list for this tournament is not complete or the tournament inexistent&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (94 > 79 characters):</p>
+               
+               <a href="view.source.html#l294">
+                  <tt><i>294</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s1">&#39; The &#39;</span> <span class="o">+</span> <span class="n">round_name</span> <span class="o">+</span> <span class="s2">&quot; will see the following matches: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">pairings</span><span class="p">)</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (95 > 79 characters):</p>
+               
+               <a href="view.source.html#l300">
+                  <tt><i>300</i>         <span class="n">statement</span> <span class="o">=</span> <span class="n">first</span> <span class="o">+</span> <span class="n">round_number</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">tournament</span> <span class="o">+</span> <span class="s2">&quot; The round has already ended&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (115 > 79 characters):</p>
+               
+               <a href="view.source.html#l304">
+                  <tt><i>304</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The &quot;</span> <span class="o">+</span> <span class="n">round_name</span> <span class="o">+</span> <span class="s2">&quot; of the tournament: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tournament</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; has been completed&amp;updated.&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (110 > 79 characters):</p>
+               
+               <a href="view.source.html#l308">
+                  <tt><i>308</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;Before getting new pairings make sure that the previous round results have been recorded&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (88 > 79 characters):</p>
+               
+               <a href="view.source.html#l312">
+                  <tt><i>312</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;Pairing impossible, check that the tournament hasn&#39;t already ended&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (98 > 79 characters):</p>
+               
+               <a href="view.source.html#l320">
+                  <tt><i>320</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;It seems like the player list is not full, hence the pairing can not be done&quot;</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (100 > 79 characters):</p>
+               
+               <a href="view.source.html#l324">
+                  <tt><i>324</i>         <span class="n">statement</span> <span class="o">=</span> <span class="s2">&quot;The &quot;</span> <span class="o">+</span> <span class="n">true_round</span> <span class="o">+</span> <span class="s2">&quot; in the tournament : &quot;</span> <span class="o">+</span> <span class="n">tournament</span> <span class="o">+</span> <span class="s2">&quot; does not exists.&quot;</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>

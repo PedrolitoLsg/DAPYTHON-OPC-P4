@@ -33,13 +33,13 @@ Il permet la création et la gestion des données de tournois d'échecs via Tiny
 * Créér un git clone en local afin d'utiliser le script:
 Ouvrir gitbash à l'emplacement désiré puis entrer:
 	git clone https://github.comurlcomplet
-*Création Environnement virtuel et Installation des librairies nécessaires
- Ouvrir le terminal:
-	Accéder au dossier en faisant cd  (change directory)
-	Créer l'environnement virtuel:
-		python -m venv nomdelenvironnement_env
-	On peut vérifier qu'il a bien été crée avec:
-		dir
+*Création Environnement virtuel et Installation des librairies nécessaires  
+ Ouvrir le terminal:  
+	Accéder au dossier en faisant cd  (change directory)  
+	Créer l'environnement virtuel:  
+		python -m venv nomdelenvironnement_env  
+	On peut vérifier qu'il a bien été crée avec:  
+		dir  
 	On active ensuite l'environnement avec:
 		nomdelenvironnement_env\Scripts\activate.bat
 	On peut vérifier que l'environnement ne contient que pip et setup tools en entrant:

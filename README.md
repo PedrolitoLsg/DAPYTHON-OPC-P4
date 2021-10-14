@@ -31,7 +31,7 @@ Il permet la création et la gestion des données de tournois d'échecs via Tiny
 
 ### Pré-requis
 * Créér un git clone en local afin d'utiliser le script:
-Ouvrir gitbash à l'emplacement désiré puis entrer:
+Ouvrir gitbash à l'emplacement désiré puis entrer:  
 	git clone https://github.comurlcomplet
 * Création Environnement virtuel et Installation des librairies nécessaires  
  Ouvrir le terminal:  

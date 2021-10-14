@@ -40,14 +40,14 @@ Ouvrir gitbash à l'emplacement désiré puis entrer:
 		python -m venv nomdelenvironnement_env  
 	On peut vérifier qu'il a bien été crée avec:  
 		dir  
-	On active ensuite l'environnement avec:
-		nomdelenvironnement_env\Scripts\activate.bat
-	On peut vérifier que l'environnement ne contient que pip et setup tools en entrant:
-		pip list
-	On peut maintenant installer les requirements avec:
-		pip install -r requirements.txt
-	On peut vérifier que les bons packages ont été installés en entrant:
-		pip list
+	On active ensuite l'environnement avec:  
+		nomdelenvironnement_env\Scripts\activate.bat  
+	On peut vérifier que l'environnement ne contient que pip et setup tools en entrant:  
+		pip list  
+	On peut maintenant installer les requirements avec:  
+		pip install -r requirements.txt  
+	On peut vérifier que les bons packages ont été installés en entrant:  
+		pip list  
 
 * Avant d'utiliser nettoyer le fichier db.json qui contient des joueurs et tournois factices permettant de s'assurer du bon fonctionnement du script.
 

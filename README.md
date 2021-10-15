@@ -55,7 +55,9 @@ Ouvrir gitbash à l'emplacement désiré puis entrer:
 Après avoir installé les différentes librairies, s'assurer que l'environnement virtuel est actif avec:
 	* * nomdelenvironnement_env\Scripts\activate.bat  
 entrer dans le terminal le code:
-flake8 --max-line-length=119 --format=html --htmldir=flake-report
+flake8 --max-line-length=119 --format=html --htmldir=flake-report model.py view.py controller.py main.py
+
+un folder nommé flake-report est créé au sein duquel le fichier index contient le rapport
 
 
 

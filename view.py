@@ -118,7 +118,7 @@ class View:
                 if ttimecontrol not in standards:
                     raise Exception()
                 return ttimecontrol
-            except timecontrol.notinrange:
+            except ttimecontrol.notinrange:
                 return get_ttimecontrol()
 
         tinfo = {'type': type, 'name': get_tname(), 'date': get_tdate(), 'location': get_tlocation(), 'description': get_tdescription(),
@@ -169,7 +169,7 @@ class View:
             if (result_p1 not in possibilities):
                 raise Exception()
             return result_p1
-        except result.notinpossib:
+        except result_p1.notinpossib:
             return self.test_results(count)
 
     def get_input_reports(self):

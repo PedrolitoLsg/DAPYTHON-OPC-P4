@@ -52,7 +52,8 @@ Ouvrir gitbash à l'emplacement désiré puis entrer:
 * Avant d'utiliser nettoyer le fichier db.json qui contient des joueurs et tournois factices permettant de s'assurer du bon fonctionnement du script.
 
 ### Génération du rapport flake8-html
-Après avoir installé les différentes librairies
+Après avoir installé les différentes librairies, s'assurer que l'environnement virtuel est actif avec:
+	* * nomdelenvironnement_env\Scripts\activate.bat  
 entrer dans le terminal le code:
 flake8 --format=html --htmldir=flake-report
 

@@ -181,22 +181,22 @@ class View:
         five = "for all matches of a tournament press 5\n"
         six = "for all players of a tournament by alphabetical order press 6\n"
         seven = "for all players of a tournament by score press 7: \n"
-        value = int(input(one + two + three + four + five + six + seven)
-        simple = [1, 2, 3]
-        round = [4]
-        match = [5]
+        value = int(input(one + two + three + four + five + six + seven))
+        psoft = [1, 2, 3]
+        pround = [4]
+        pmatch = [5]
         advanced_alpha = [6]
         advanced_score = [7]
-        if value in simple:
+        if value in psoft:
             return value
-        elif value in round:
+        elif value in pround:
             second = input("Enter the name of the tournament you are looking for: \n")
             return value, second
-        elif value in match:
+        elif value in pmatch:
             second = input("Enter the name of the tournament where you are looking to get the matches list: \n")
             return value, second
         elif value in advanced_alpha:
-            second = input("Enter the name of the tournament you are looking to get all players by alphabetical order: \n")
+            second = input("Enter the tournament you wish to get all players from by alphabetical order: \n")
             return value, second
         elif value in advanced_score:
             second = input("Enter the name of the tournament you are looking to get all players by score: \n")
@@ -255,7 +255,7 @@ class Prints:  # This gives information to the user
         print(statement)
 
     def print_player_added_to_the_player_list(self, first_name, last_name, spot, tournament):
-        statement = 'Player: ' + first_name + " " + last_name + " was added with nb : " + str(spot) + " in tournament: " + tournament
+        statement = 'Player: ' + first_name + " " + last_name + " was added as: " + str(spot) + " in: " + tournament
         print(statement)
 
     def print_player_already_in_tournament(self):

@@ -3,7 +3,7 @@ from view import View, Prints
 import datetime as dt
 
 query = Query()
-database = TinyDB('db.json')
+db = TinyDB('db.json')
 
 
 class Controller:
@@ -41,7 +41,7 @@ class Controller:
         last_name = new_player['lastname']
         test = self.check_players_existence(first_name, last_name)
         if test == 0:
-            database.insert(new_player)
+            db.insert(new_player)
             self.print.print_player_added_to_db(first_name, last_name)
 
     def write_tournament(self):
@@ -49,7 +49,7 @@ class Controller:
         tournament = new_tournament['name']
         test = self.check_tournament_existence(tournament)
         if test is None:  # confirme que le tournoi n'existe pas déjà
-            database.insert(new_tournament)
+            db.insert(new_tournament)
             self.print.print_tournament_successfully_created(tournament)
         elif test != []:  # le tournoi existe déjà
             self.print.print_tournament_already_exists(tournament)
@@ -128,7 +128,7 @@ class Controller:
         self.write_pairings(tournament, pairings, round_to_be_written)
 
     def have_p1_and_p2_played(self, tournament, sorted_list_by_score, round_to_be_written):
-        data = database.get((query.type == 'tournament') & (query.name == tournament))
+        data = db.get((query.type == 'tournament') & (query.name == tournament))
         p1 = sorted_list_by_score[0][0]
         p2 = sorted_list_by_score[1][0]
         list_previous_rounds = self.get_list_of_previous_rounds(round_to_be_written)
@@ -158,7 +158,7 @@ class Controller:
         return list_previous_rounds
 
     def sorting_tournament_participants_by_score(self, tournament):
-        player_list = database.get((query.type == 'tournament') & (query.name == tournament))['player list']
+        player_list = db.get((query.type == 'tournament') & (query.name == tournament))['player list']
         dict = {}
         for stuff in player_list.values():
             for id in stuff:
@@ -169,12 +169,12 @@ class Controller:
 
     def write_pairings(self, tournament, pairings, round_to_be_written):
         round_name = ('round' + str(round_to_be_written))
-        database.upsert({round_name: pairings}, ((query.type == 'tournament') & (query.name == tournament)))
+        db.upsert({round_name: pairings}, ((query.type == 'tournament') & (query.name == tournament)))
         self.print.print_pairings(round_name, pairings)
 
     def check_round_has_ended(self, tournament, previous_round):
         round_name = 'round' + str(previous_round)
-        data = database.get((query.type == 'tournament') & (query.name == tournament))
+        data = db.get((query.type == 'tournament') & (query.name == tournament))
         detail = data[round_name]
         if detail["endtime"] != []:
             return 1
@@ -203,13 +203,13 @@ class Controller:
             blueprint['4'][1][1] = results[3][1]
             # ajout de l'heure et date de fin
             blueprint['endtime'] = str(dt.datetime.now())
-            database.update({round_name: blueprint}, (query.type == 'tournament') & (query.name == tournament))
+            db.update({round_name: blueprint}, (query.type == 'tournament') & (query.name == tournament))
             self.update_scores_in_player_list(tournament, round_name)
 
     def check_round_existence(self, tournament, round_number):
         true_round = "round" + str(round_number)
         print(true_round)
-        data_tournament = database.get((query.type == 'tournament') & (query.name == tournament))
+        data_tournament = db.get((query.type == 'tournament') & (query.name == tournament))
         print(data_tournament)
         if data_tournament is not None:
             try:
@@ -225,7 +225,7 @@ class Controller:
             self.print.print_tournament_does_not_exists(tournament)
 
     def update_scores_in_player_list(self, tournament, round_name):
-        data = database.get((query.type == 'tournament') & (query.name == tournament))
+        data = db.get((query.type == 'tournament') & (query.name == tournament))
         player_list = data['player list']
         round_results = data[round_name]
         dict_results = {}
@@ -259,13 +259,13 @@ class Controller:
                         player_list[str(tool_2)][id]['score'] = player_list[str(tool_2)][id]['score'] + score
                     tool_2 += 1
                 tool += 1
-        database.update({'player list': player_list}, ((query.type == 'tournament') & (query.name == tournament)))
+        db.update({'player list': player_list}, ((query.type == 'tournament') & (query.name == tournament)))
         self.print.print_round_updated(round_name, tournament)
 
-    def display_reports(self):  # this function allows to get reports from the database
+    def display_reports(self):  # this function allows to get reports from the db
         intel = self.view.get_input_reports()
 
-        if intel == 1:  # search all players in the database and sort them by ranking (from top to bottom)
+        if intel == 1:  # search all players in the db and sort them by ranking (from top to bottom)
             self.report_one()
         elif intel == 2:  # results = all players by alphabetical order
             self.report_two()
@@ -284,7 +284,7 @@ class Controller:
             self.print.print(report)
 
     def report_one(self):
-        raw_report = database.search(query.type == "player")
+        raw_report = db.search(query.type == "player")
         raw_report.sort(key=lambda k: k['elo'])
         raw_report.reverse()
         clean_report = []
@@ -293,7 +293,7 @@ class Controller:
         self.print.print_report_all_players_by_score(clean_report)
 
     def report_two(self):
-        raw_report = database.search(query.type == "player")
+        raw_report = db.search(query.type == "player")
         print(raw_report)
         clean_report = []
         raw_report.sort(key=lambda k: k['lastname'])
@@ -303,14 +303,14 @@ class Controller:
         self.print.print_report_list_of_players_alpha(clean_report)
 
     def report_three(self):
-        report = database.search(query.type == 'tournament')
+        report = db.search(query.type == 'tournament')
         list_of_tournament = []
         for tournament in report:
             list_of_tournament.append(tournament['name'])
         self.print.print_report_list_of_tournaments(list_of_tournament)
 
     def report_four(self, intel):
-        report = database.get((query.type == 'tournament') & (query.name == str(intel[1])))
+        report = db.get((query.type == 'tournament') & (query.name == str(intel[1])))
         tool_rounds = []
         rounds = {}
         for elem in report:
@@ -322,7 +322,7 @@ class Controller:
         self.print.print_report_round_of_tournament(rounds)
 
     def report_five(self, intel):
-        report = database.get((query.type == 'tournament') & (query.name == str(intel[1])))
+        report = db.get((query.type == 'tournament') & (query.name == str(intel[1])))
         tool_rounds = []
         rounds = {}
         for elem in report:
@@ -334,7 +334,7 @@ class Controller:
 
     def report_six(self, intel):
         tournament = str(intel[1])
-        player_list = database.get((query.type == 'tournament') & (query.name == tournament))['player list']
+        player_list = db.get((query.type == 'tournament') & (query.name == tournament))['player list']
         dict = {}
         for stuff in player_list.values():
             for id in stuff:
@@ -345,7 +345,7 @@ class Controller:
 
     def report_seven(self, intel):
         tournament = str(intel[1])
-        player_list = database.get((query.type == 'tournament') & (query.name == tournament))['player list']
+        player_list = db.get((query.type == 'tournament') & (query.name == tournament))['player list']
         dict = {}
         for stuff in player_list.values():
             for id in stuff:
@@ -360,17 +360,17 @@ class Controller:
         player_first_name = input[0]
         player_last_name = input[1]
         player_elo = input[2]
-        player_in_db = database.search((query.firstname == player_first_name) & (query.lastname == player_last_name) & (
+        player_in_db = db.search((query.firstname == player_first_name) & (query.lastname == player_last_name) & (
                 query.type == "player"))  # check if player exists:
         if player_in_db is not None:
-            database.update({'elo': player_elo}, (
+            db.update({'elo': player_elo}, (
                     (query.firstname == player_first_name) & (query.lastname == player_last_name) & (query.type == "player")))
             self.print.print_update_elo_successul(player_first_name, player_last_name)
         else:
             self.print.print_player_does_not_exists()
 
     def check_players_existence(self, first_name, last_name):
-        player_in_db = database.get((query.firstname == first_name) & (query.lastname == last_name) & (query.type == "player"))
+        player_in_db = db.get((query.firstname == first_name) & (query.lastname == last_name) & (query.type == "player"))
         if player_in_db is None:
             score = 0
             return score
@@ -378,18 +378,18 @@ class Controller:
             self.print.print_player_already_exists(first_name, last_name)
 
     def check_players_existence_in_tournament(self, tournament, first_name, last_name):
-        tournament_data = database.get((query.name == tournament) & (query.type == 'tournament'))
+        tournament_data = db.get((query.name == tournament) & (query.type == 'tournament'))
         player_list = tournament_data['player list']
         if (first_name not in str(player_list) or last_name not in str(player_list)):
             response = False
             return response
 
     def check_tournament_existence(self, tournament):  # permet de vérifier que le tournoi existe ou pas
-        find = database.get((query.name == tournament) & (query.type == 'tournament'))
+        find = db.get((query.name == tournament) & (query.type == 'tournament'))
         return find
 
     def check_tournament_can_start(self, tournament):  # permet de voir si le player 8 est bien entré
-        response = database.get(query.name == tournament)
+        response = db.get(query.name == tournament)
         if response is not None:
             player_list = response['player list']
             if len(player_list) == 8:
@@ -399,28 +399,28 @@ class Controller:
             self.print.print_tournament_cant_start()
 
     def create_new_player_id(self, tournament):
-        player_list = (database.get((query.type == 'tournament') & (query.name == tournament)))['player list']
+        player_list = (db.get((query.type == 'tournament') & (query.name == tournament)))['player list']
         id = len(player_list) + 1
         if id <= 8:
             return id
 
     def add_player_to_player_list(self, tournament, spot, first_name, last_name, elo):
         new_player = {str('player' + str(spot)): {'name': str(first_name + " " + last_name), 'score': elo}}
-        player_list = database.get((query.type == 'tournament') & (query.name == tournament))[
+        player_list = db.get((query.type == 'tournament') & (query.name == tournament))[
             'player list']  # récupération du blueprint player_list
         player_list[int(spot-1)] = new_player
-        database.update({'player list': player_list}, (query.type == 'tournament') & (
-                query.name == tournament))  # insertion de la player_list modifiée dans la database
+        db.update({'player list': player_list}, (query.type == 'tournament') & (
+                query.name == tournament))  # insertion de la player_list modifiée dans la db
         self.print.print_player_added_to_the_player_list(first_name, last_name, spot, tournament)
 
     def check_round(self, tournament):  # permet de connaitre le prochain numéro du round qui devra être créé
-        response = database.get((query.type == 'tournament') & (query.name == tournament))
+        response = db.get((query.type == 'tournament') & (query.name == tournament))
         next_round_to_create = len(
             response) - 6
         return next_round_to_create
 
     def check_player_exists_via_elo(self, first_name, last_name):
-        elo = database.get((query.type == 'player') & (query.firstname == first_name) & (query.lastname == last_name))['elo']
+        elo = db.get((query.type == 'player') & (query.firstname == first_name) & (query.lastname == last_name))['elo']
         print(elo)
         if elo is not None:
             return elo

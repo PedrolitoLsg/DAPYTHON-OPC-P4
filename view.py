@@ -119,12 +119,16 @@ class View:
                 ttime = input("Enter the tournament time-control : Blitz or Bullet or Coup Rapide \n")
                 if ttime not in standards:
                     raise Exception()
-                return ttimec
+                return ttime
             except ttime.notinrange:
                 return get_ttime()
 
-        tinfo = {'type': type, 'name': get_tname(), 'date': get_tdate(), 'location': get_tloc(), 'description': get_tdesc(),
-                 'timecontrol': get_ttime(), 'player list': {}}
+        tinfo = {'type': type, 'name': get_tname(),
+                 'date': get_tdate(),
+                 'location': get_tloc(),
+                 'description': get_tdesc(),
+                 'timecontrol': get_ttime(),
+                 'player list': {}}
         print(tinfo)
         return tinfo
 

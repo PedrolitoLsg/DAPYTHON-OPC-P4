@@ -8,13 +8,13 @@ class View:
         instructions = str("Before adding any player to a tournament you should enter its information in the database")
         add_player = str("To add a player to the database press 1.\n")
         create_tournament = str("To create a tournament press 2.\n")
-        add_players_to_a_tournament = str("To add players to a tournament press 3.\n")
-        get_pairs = str("To get pairings for a tournament press 4.\n")
-        enter_results = str("To enter results of matches/rounds enter 5.\n")
-        reports = str("To access reports press 6.\n")
+        add_p_to_t = str("To add players to a tournament press 3.\n")
+        get_pair = str("To get pairings for a tournament press 4.\n")
+        enter_result = str("To enter results of matches/rounds enter 5.\n")
+        report = str("To access reports press 6.\n")
         modif_elo = str("Modify the elo score of a player 7.\n")
         print(instructions)
-        choice = int(input(intro + add_player + create_tournament + add_players_to_a_tournament + get_pairs + enter_results + reports + modif_elo))
+        choice = int(input(intro + add_player + create_tournament + add_p_to_t + get_pair + enter_result + report + modif_elo))
         print(choice)
         return choice
 
@@ -103,15 +103,15 @@ class View:
             tdate = input("Please enter the date of the tournament following the DDMMYYYY structure: \n")
             return tdate
 
-        def get_tlocation():
+        def get_tloc():
             tlocation = input("Please enter the city of location of the tournament :\n")
             return tlocation
 
-        def get_tdescription():
+        def get_tdesc():
             tdescription = input("Enter a tournament description: \n")
             return tdescription
 
-        def get_ttimecontrol():
+        def get_ttimec():
             standards = ['Blitz', 'Bullet', 'Coup Rapide']
             try:
                 ttimecontrol = input("Enter the tournament time-control : Blitz or Bullet or Coup Rapide \n")
@@ -121,8 +121,8 @@ class View:
             except ttimecontrol.notinrange:
                 return get_ttimecontrol()
 
-        tinfo = {'type': type, 'name': get_tname(), 'date': get_tdate(), 'location': get_tlocation(), 'description': get_tdescription(),
-                 'timecontrol': get_ttimecontrol(), 'player list': {}}
+        tinfo = {'type': type, 'name': get_tname(), 'date': get_tdate(), 'location': get_tloc(), 'description': get_tdesc(),
+                 'timecontrol': get_ttime(), 'player list': {}}
         print(tinfo)
         return tinfo
 

@@ -364,13 +364,18 @@ class Controller:
                 query.type == "player"))  # check if player exists:
         if player_in_db is not None:
             db.update({'elo': player_elo}, (
-                    (query.firstname == player_first_name) & (query.lastname == player_last_name) & (query.type == "player")))
+                    (query.firstname == player_first_name) &
+                    (query.lastname == player_last_name) &
+                    (query.type == "player"))
+                      )
             self.print.print_update_elo_successul(player_first_name, player_last_name)
         else:
             self.print.print_player_does_not_exists()
 
     def check_players_existence(self, first_name, last_name):
-        player_in_db = db.get((query.firstname == first_name) & (query.lastname == last_name) & (query.type == "player"))
+        player_in_db = db.get(
+            (query.firstname == first_name) & (query.lastname == last_name) & (query.type == "player")
+        )
         if player_in_db is None:
             score = 0
             return score

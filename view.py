@@ -14,7 +14,9 @@ class View:
         report = str("To access reports press 6.\n")
         modif_elo = str("Modify the elo score of a player 7.\n")
         print(instructions)
-        choice = int(input(intro + add_player + create_tournament + add_p_to_t + get_pair + enter_result + report + modif_elo))
+        choice = int(input(
+            intro + add_player + create_tournament + add_p_to_t + get_pair + enter_result + report + modif_elo)
+        )
         print(choice)
         return choice
 
@@ -111,15 +113,15 @@ class View:
             tdescription = input("Enter a tournament description: \n")
             return tdescription
 
-        def get_ttimec():
+        def get_ttime():
             standards = ['Blitz', 'Bullet', 'Coup Rapide']
             try:
-                ttimecontrol = input("Enter the tournament time-control : Blitz or Bullet or Coup Rapide \n")
-                if ttimecontrol not in standards:
+                ttime = input("Enter the tournament time-control : Blitz or Bullet or Coup Rapide \n")
+                if ttime not in standards:
                     raise Exception()
-                return ttimecontrol
-            except ttimecontrol.notinrange:
-                return get_ttimecontrol()
+                return ttimec
+            except ttime.notinrange:
+                return get_ttime()
 
         tinfo = {'type': type, 'name': get_tname(), 'date': get_tdate(), 'location': get_tloc(), 'description': get_tdesc(),
                  'timecontrol': get_ttime(), 'player list': {}}
